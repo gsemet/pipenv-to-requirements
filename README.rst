@@ -47,11 +47,15 @@ Just before building source/binary/wheel package of your python module, execute:
 
 To generate requirements files (ie, dependencies are described eventually by range):
 
-    pipenv run pipenv_to_requirements
+    .. code-block:: bash
+
+        pipenv run pipenv_to_requirements
 
 To generate frozen requirements (ie, all dependencies have their version frozen):
 
-    pipenv run pipenv_to_requirements -f
+    .. code-block:: bash
+
+        pipenv run pipenv_to_requirements -f
 
 It will generate ``requirements.txt`` and, if applicable, ``requirements-dev.txt``, in the current
 directory.
