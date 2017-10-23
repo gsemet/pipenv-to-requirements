@@ -5,7 +5,7 @@ MODULE:=pipenv-to-requirements
 all: dev style checks build dists test-unit
 
 dev:
-	pipenv install --dev --skip-lock
+	pipenv install --dev
 
 style: isort autopep8 yapf
 
@@ -39,6 +39,8 @@ dists: sdist bdist wheels
 requirements:
 	pipenv run pipenv_to_requirements
 
+release: requirements
+
 sdist: requirements
 	pipenv run python setup.py sdist
 
@@ -48,7 +50,7 @@ bdist: requirements
 wheels: requirements
 	pipenv run python setup.py bdist_wheel
 
-pypi-publish: build requirements
+pypi-publish: build release
 	pipenv run python setup.py upload -r pypi
 
 update:
