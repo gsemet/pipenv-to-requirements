@@ -16,6 +16,7 @@ install:
 
 script:
   - make check
+  - make requirements
   # - make test-unit
 
 # after_success:
