@@ -6,7 +6,7 @@ from __future__ import unicode_literals
 
 import sys
 
-if sys.version < (3, 0):
+if sys.version_info < (3, 0):
     # pylint: disable=redefined-builtin
     # compatibility Python 2/3 for isinstance(..., str)
     from builtins import str
