@@ -11,7 +11,7 @@ pipenv-to-requirements
    :target: ./LICENSE
    :alt: MIT licensed
 
-Generate `requirements[-dev].txt` from `Pipfile` (using `pipenv`)
+Generate ``requirements[-dev].txt`` from ``Pipfile`` (using ``pipenv``)
 
 * Free software: MIT
 * Documentation: https://pipenv-to-requirements.readthedocs.org/en/latest/
@@ -20,17 +20,16 @@ Generate `requirements[-dev].txt` from `Pipfile` (using `pipenv`)
 Rational
 --------
 
-`Pipfile` and its sibling `Pipfile.lock` are clearly superior tools defining clear dependencies or
-a package. `Pipfile` is to be maintained by the package's developer while `Pipfile.lock` represent
-a clear image of what is currently installed on the current system, guarantying full
-reproductibility of the setup. See more information about
-[Pipfile format here](https://github.com/pypa/pipfile). Most of the time, `Pipfile.lock` should be
-ignored (ie, not tracked in your git) for packages published on Pypi.
+``Pipfile`` and its sibling ``Pipfile.lock`` are clearly superior tools defining clear dependencies
+or a package. ``Pipfile`` is to be maintained by the package's developer while ``Pipfile.lock``
+represent a clear image of what is currently installed on the current system, guarantying full
+reproductibility of the setup. See more information about `Pipfile format here
+<https://github.com/pypa/pipfile>`_. Most of the time, ``Pipfile.lock`` should be ignored (ie, not
+tracked in your git) for packages published on Pypi.
 
-[pipenv](https://github.com/kennethreitz/pipenv) is a great tool to maintain `Pipfile`, but
-developers might be stuck with backward compatibility issues for tools and services that still
-use `requirements.txt` and does not know how to handle `Pipfile` or `Pipfile.lock` yet.
-
+`pipenv <https://github.com/kennethreitz/pipenv>`_ is a great tool to maintain ``Pipfile``, but
+developers might be stuck with backward compatibility issues for tools and services that still use
+`requirements.txt` and does not know how to handle ``Pipfile`` or ``Pipfile.lock`` yet.
 For examples:
 
 - ReadTheDocs
@@ -50,6 +49,8 @@ For not frozen dependencies:
 
     pipenv run pipenv_to_requirements
 
+It will generate `requirements.txt` and, if applicable, `requirements-dev.txt` in the current
+directory.
 
 Contributing
 ------------
@@ -66,13 +67,11 @@ Execute unit tests:
 
         $ make test
 
-Build source package:
-
-    Use it for most package without low level system dependencies.
+Build source, binary and wheels packages:
 
     .. code-block:: bash
 
-        $ make sdist
+        $ make dist
 
 Code Style Checks:
 
@@ -90,6 +89,7 @@ Create a release:
 
     .. code-block:: bash
 
+        make requirements
         git tag 1.2.3
         make push
 
