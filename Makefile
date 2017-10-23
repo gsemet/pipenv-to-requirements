@@ -7,6 +7,9 @@ all: dev style checks build dists test
 dev:
 	pipenv install --dev
 
+dev-py2:
+	pipenv install --dev --two
+
 style: isort autopep8 yapf
 
 isort:
@@ -63,6 +66,9 @@ githook: style
 
 push: githook
 	@git push origin --tags
+
+clean:
+	pipenv --rm
 
 # aliases to gracefully handle typos on poor dev's terminal
 check: checks

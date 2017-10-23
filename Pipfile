@@ -15,6 +15,7 @@ cryptography = ">=1.4"
 pyyaml = ">=3.11"
 tox = "*"
 "e1839a8" = {path = ".", editable = true}
+future = {version = "*", markers = "python_version < '3.0'"}
 
 
 [packages]
