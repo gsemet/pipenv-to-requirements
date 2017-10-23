@@ -1,0 +1,2 @@
+pbr>=3.0
+pipenv

@@ -1,8 +1,8 @@
 .PHONY: build
 
-MODULE:=pipenv-to-requirements
+MODULE:=pipenv_to_requirements
 
-all: dev style checks build dists test-unit
+all: dev style checks build dists test
 
 dev:
 	pipenv install --dev
@@ -28,8 +28,11 @@ pylint:
 
 build: dists
 
-test-unit:
+test:
 	pipenv run pytest $(MODULE)
+
+test-verbose:
+	pipenv run pytest -s $(MODULE)
 
 test-coverage:
 	pipenv run py.test -v --cov $(MODULE) --cov-report term-missing
@@ -69,7 +72,4 @@ dist: dists
 install: install-system
 pypi: pypi-publish
 styles: style
-test: test-unit
-unittest: test-unit
-unit-test: test-unit
 wheel: wheels

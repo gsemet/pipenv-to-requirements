@@ -23,13 +23,13 @@ Usage
 
 Just before building source/binary/wheel package of your python module, just execute:
 
-For frozen dependencies
+To generated frozen dependencies:
 
     pipenv run pipenv_to_requirements -f
 
 For not frozen dependencies:
 
-    pipenv run pipenv_to_requirements -f
+    pipenv run pipenv_to_requirements
 
 
 Contributing
@@ -45,7 +45,7 @@ Execute unit tests:
 
     .. code-block:: bash
 
-        $ make unit-test
+        $ make test
 
 Build source package:
 

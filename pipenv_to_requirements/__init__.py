@@ -1,14 +1,31 @@
 # -*- coding: utf-8 -*-
+from __future__ import absolute_import
+from __future__ import division
+from __future__ import print_function
+from __future__ import unicode_literals
 
 import sys
 from pipenv.project import Project
 
 
+def clean_version(pkg_name, version):
+    if not version:
+        return pkg_name
+    if isinstance(version, str):
+        if version.strip() == "*":
+            return pkg_name
+        return "{}{}".format(pkg_name, version)
+    if 'editable' in version:
+        return "-e ."
+
+
 def formatPipenvEntryForRequirements(pkg_name, pkg_info):
-    return "{name}{version}".format(
-        name=pkg_name,
-        version=pkg_info.get("version", "").strip(),
-    )
+    return clean_version(pkg_name, pkg_info["version"].strip()
+                         if "version" in pkg_info else pkg_info)
+
+
+def parse_pip_file(pipfile, section):
+    return [formatPipenvEntryForRequirements(n, i) for n, i in pipfile.get(section, {}).items()]
 
 
 def main():
@@ -24,10 +41,14 @@ def main():
     if "-f" in sys.argv or "--freeze" in sys.argv:
         pipfile = Project().lockfile_content
     else:
+        # pylint: disable=protected-access
         pipfile = Project()._lockfile
+        # pylint: enable=protected-access
+
+    def_req = parse_pip_file(pipfile, "default")
+    dev_req = parse_pip_file(pipfile, "develop")
 
     # Create pip-compatible dependency list
-    pipfile = Project().lockfile_content
     def_req = [
         formatPipenvEntryForRequirements(n, i) for n, i in pipfile.get("default", {}).items()
     ]
