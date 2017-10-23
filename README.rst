@@ -93,4 +93,4 @@ Create a release:
         git tag 1.2.3
         make push
 
-    On successful travis build on the Tag branch, your Pypi package will be updated automatically.
+On successful travis build on the Tag branch, your Pypi package will be updated automatically.
