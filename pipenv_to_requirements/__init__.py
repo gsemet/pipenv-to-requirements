@@ -11,15 +11,25 @@ import sys
 from pipenv.project import Project
 
 
-def clean_version(pkg_name, version):
-    if not version:
-        return pkg_name
-    if isinstance(version, str):
-        if version.strip() == "*":
+def clean_version(pkg_name, pkg_info):
+    if isinstance(pkg_info, str):
+        if pkg_info.strip() == "*":
             return pkg_name
-        return "{}{}".format(pkg_name, version)
-    if 'editable' in version:
-        return "-e ."
+        return "{}{}".format(pkg_name, pkg_info)
+    if not pkg_info:
+        return pkg_name
+    version = pkg_info.get("version", "").strip()
+    editable = pkg_info.get("editable", False)
+    markers = pkg_info.get("markers", "").strip()
+    if not editable:
+        rstr = pkg_name
+        if version and version != "*":
+            rstr += version
+    else:
+        rstr = "-e ."
+    if markers:
+        rstr += " ; " + markers
+    return rstr
 
 
 def formatPipenvEntryForRequirements(pkg_name, pkg_info):
@@ -28,7 +38,7 @@ def formatPipenvEntryForRequirements(pkg_name, pkg_info):
 
 
 def parse_pip_file(pipfile, section):
-    return [formatPipenvEntryForRequirements(n, i) for n, i in pipfile.get(section, {}).items()]
+    return [clean_version(n, i) for n, i in pipfile.get(section, {}).items()]
 
 
 def main():

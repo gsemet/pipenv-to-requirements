@@ -1,0 +1,9 @@
+cryptography>=1.4
+flake8
+future ; python_version < '3.0'
+pycodestyle>=2.0
+pyflakes<1.6.0,>=1.5.0
+pylint>=1.7
+pyyaml>=3.11
+tox
+yapf>=0.18

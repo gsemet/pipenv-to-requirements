@@ -52,3 +52,16 @@ class TestParsing(object):
 
         expected_requirements_dev = self.load_requirements("Pipfile.editable.requirements-dev.txt")
         assert sorted(requirements_dev) == sorted(expected_requirements_dev)
+
+    def test_markers(self):
+        pipfile_json = self.load_vector_pipfile("Pipfile.markers")
+
+        requirements = pipenv_to_requirements.parse_pip_file(pipfile_json, "default")
+        requirements_dev = pipenv_to_requirements.parse_pip_file(pipfile_json, "develop")
+
+        expected_requirements = self.load_requirements("Pipfile.markers.requirements.txt")
+        assert sorted(requirements) == sorted(expected_requirements)
+
+        print(requirements_dev)
+        expected_requirements_dev = self.load_requirements("Pipfile.markers.requirements-dev.txt")
+        assert sorted(requirements_dev) == sorted(expected_requirements_dev)
