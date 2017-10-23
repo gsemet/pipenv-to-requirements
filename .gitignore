@@ -4,6 +4,8 @@
 *.so
 
 # Packages
+.cache
+__pycache__/
 *.egg*
 *.egg-info
 dist
