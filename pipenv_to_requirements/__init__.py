@@ -4,11 +4,17 @@ from __future__ import division
 from __future__ import print_function
 from __future__ import unicode_literals
 
-# compatibility Python 2/3 for isinstance(..., str)
-from builtins import str
-
 import sys
+
+if sys.version < (3, 0):
+    # pylint: disable=redefined-builtin
+    # compatibility Python 2/3 for isinstance(..., str)
+    from builtins import str
+    # pylint: enable=redefined-builtin
+
+# pylint: disable=wrong-import-position
 from pipenv.project import Project
+# pylint: enable=wrong-import-position
 
 
 def clean_version(pkg_name, pkg_info):
