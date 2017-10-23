@@ -58,8 +58,10 @@ def main():
 
     intro = [
         "################################################################################",
-        "# This requirements files has been automatically generated from `Pipfile.lock`",
-        '# with `pipenv-to-requirements`', '#',
+        "# This requirements files has been automatically generated from `Pipfile` with",
+        '# `pipenv-to-requirements`', '#', '#'
+        '# This has been done to maintain backward compatibility with tools and services',
+        '# that does not support `Pipfile` yet.', '#'
         "# Do NOT edit it directly, use `pipenv install [-d]` to modify `Pipfile` and",
         "# `Pipfile.lock`",
         "################################################################################", ""
