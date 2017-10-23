@@ -45,11 +45,11 @@ Usage
 Just before building source/binary/wheel package of your python module, execute:
 
 
-For not frozen dependencies:
+To generate requirements files (ie, dependencies are described eventually by range):
 
     pipenv run pipenv_to_requirements
 
-To generated frozen dependencies (ie, all dependencies have their version frozen):
+To generate frozen requirements (ie, all dependencies have their version frozen):
 
     pipenv run pipenv_to_requirements -f
 
