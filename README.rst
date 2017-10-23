@@ -17,6 +17,25 @@ Generate `requirements[-dev].txt` from `Pipfile` (using `pipenv`)
 * Documentation: https://pipenv-to-requirements.readthedocs.org/en/latest/
 * Source: https://github.com/Stibbons/pipenv-to-requirements
 
+Rational
+--------
+
+`Pipfile` and its sibling `Pipfile.lock` are clearly superior tools defining clear dependencies or
+a package. `Pipfile` is to be maintained by the package's developer while `Pipfile.lock` represent
+a clear image of what is currently installed on the current system, guarantying full
+reproductibility of the setup. See more information about
+[Pipfile format here](https://github.com/pypa/pipfile). Most of the time, `Pipfile.lock` should be
+ignored (ie, not tracked in your git) for packages published on Pypi.
+
+[pipenv](https://github.com/kennethreitz/pipenv) is a great tool to maintain `Pipfile`, but
+developers might be stuck with backward compatibility issues for tools and services that still
+use `requirements.txt` and does not know how to handle `Pipfile` or `Pipfile.lock` yet.
+
+For examples:
+
+- ReadTheDocs
+- Pyup
+
 
 Usage
 -----
