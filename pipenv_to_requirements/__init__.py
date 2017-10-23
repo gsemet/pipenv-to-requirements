@@ -8,7 +8,7 @@ import sys
 
 if sys.version_info < (3, 0):
     def isstr(astring):
-        return isinstance(astring, basestr)
+        return isinstance(astring, basestring)
 else:
     def isstr(astring):
         return isinstance(astring, str)
