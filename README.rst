@@ -44,15 +44,16 @@ Usage
 
 Just before building source/binary/wheel package of your python module, execute:
 
-To generated frozen dependencies:
-
-    pipenv run pipenv_to_requirements -f
 
 For not frozen dependencies:
 
     pipenv run pipenv_to_requirements
 
-It will generate ``requirements.txt`` and, if applicable, ``requirements-dev.txt`` in the current
+To generated frozen dependencies (ie, all dependencies have their version frozen):
+
+    pipenv run pipenv_to_requirements -f
+
+It will generate ``requirements.txt`` and, if applicable, ``requirements-dev.txt``, in the current
 directory.
 
 Contributing
