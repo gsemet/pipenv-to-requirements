@@ -4,6 +4,9 @@ from __future__ import division
 from __future__ import print_function
 from __future__ import unicode_literals
 
+# compatibility Python 2/3 for isinstance(..., str)
+from builtins import str
+
 import sys
 from pipenv.project import Project
 
