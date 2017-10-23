@@ -30,16 +30,19 @@ tracked in your git) for packages published on Pypi.
 `pipenv <https://github.com/kennethreitz/pipenv>`_ is a great tool to maintain ``Pipfile``, but
 developers might be stuck with backward compatibility issues for tools and services that still use
 `requirements.txt` and does not know how to handle ``Pipfile`` or ``Pipfile.lock`` yet.
+
 For examples:
 
-- ReadTheDocs
-- Pyup
+- `ReadTheDocs <https://github.com/rtfd/readthedocs.org/issues/3181>`_
+- `Pyup <https://github.com/pyupio/pyup/issues/197>`_
+- ``pip install`` (if you install a package with ``pip`` that does not have a ``requirements.txt``,
+  its dependencies won't be installed, even if you use ``Pipfile``)
 
 
 Usage
 -----
 
-Just before building source/binary/wheel package of your python module, just execute:
+Just before building source/binary/wheel package of your python module, execute:
 
 To generated frozen dependencies:
 
@@ -49,7 +52,7 @@ For not frozen dependencies:
 
     pipenv run pipenv_to_requirements
 
-It will generate `requirements.txt` and, if applicable, `requirements-dev.txt` in the current
+It will generate ``requirements.txt`` and, if applicable, ``requirements-dev.txt`` in the current
 directory.
 
 Contributing
@@ -93,4 +96,4 @@ Create a release:
         git tag 1.2.3
         make push
 
-On successful travis build on the Tag branch, your Pypi package will be updated automatically.
+On successful Travis build on a Tag, your Pypi package will be updated automatically.
