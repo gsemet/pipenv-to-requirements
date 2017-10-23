@@ -17,6 +17,5 @@ pytest = "*"
 
 
 [packages]
-future = {version = "*", markers = "python_version < '3.0'"}
 pbr = ">=3.0"
 pipenv = "*"

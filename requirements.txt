@@ -10,4 +10,3 @@
 
 pbr>=3.0
 pipenv
-future ; python_version < '3.0'

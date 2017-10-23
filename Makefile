@@ -2,7 +2,7 @@
 
 MODULE:=pipenv_to_requirements
 
-all: dev style checks build dists test
+all: dev style checks requirements build dists test
 
 dev:
 	pipenv install --dev

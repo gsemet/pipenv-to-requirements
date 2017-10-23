@@ -7,10 +7,11 @@ from __future__ import unicode_literals
 import sys
 
 if sys.version_info < (3, 0):
-    # pylint: disable=redefined-builtin
-    # compatibility Python 2/3 for isinstance(..., str)
-    from builtins import str
-    # pylint: enable=redefined-builtin
+    def isstr(astring):
+        return isinstance(astring, basestr)
+else:
+    def isstr(astring):
+        return isinstance(astring, str)
 
 # pylint: disable=wrong-import-position
 from pipenv.project import Project
@@ -18,7 +19,7 @@ from pipenv.project import Project
 
 
 def clean_version(pkg_name, pkg_info):
-    if isinstance(pkg_info, str):
+    if isstr(pkg_info):
         if pkg_info.strip() == "*":
             return pkg_name
         return "{}{}".format(pkg_name, pkg_info)
