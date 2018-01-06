@@ -13,6 +13,7 @@ pylint = ">=1.7"
 yapf = ">=0.18"
 cryptography = ">=1.4"
 pyyaml = ">=3.11"
+reno = {extras = ["sphinx"]}
 tox = "*"
 "e1839a8" = {path = ".", editable = true}
 

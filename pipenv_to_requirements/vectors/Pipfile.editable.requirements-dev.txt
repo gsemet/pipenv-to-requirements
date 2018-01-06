@@ -5,5 +5,6 @@ pycodestyle>=2.0
 pyflakes<1.6.0,>=1.5.0
 pylint>=1.7
 pyyaml>=3.11
+reno[sphinx]
 tox
 yapf>=0.18

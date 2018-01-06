@@ -30,12 +30,15 @@ def clean_version(pkg_name, pkg_info):
     version = pkg_info.get("version", "").strip()
     editable = pkg_info.get("editable", False)
     markers = pkg_info.get("markers", "").strip()
+    extras = pkg_info.get("extras", [])
     if not editable:
         rstr = pkg_name
         if version and version != "*":
             rstr += version
     else:
         rstr = "-e ."
+    if extras:
+        rstr += "[{}]".format(', '.join([s.strip() for s in extras]))
     if markers:
         rstr += " ; " + markers
     return rstr
