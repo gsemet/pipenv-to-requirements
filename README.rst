@@ -11,7 +11,7 @@ pipenv-to-requirements
    :target: ./LICENSE
    :alt: MIT licensed
 
-Generate ``requirements[-dev].txt`` from ``Pipfile`` (using ``pipenv``)
+Generate ``requirements[-dev].txt`` from ``Pipfile`` (using ``pipenv``).
 
 * Free software: MIT
 * Documentation: https://pipenv-to-requirements.readthedocs.org/en/latest/
@@ -42,16 +42,16 @@ For examples:
 Usage
 -----
 
-Just before building source/binary/wheel package of your python module, execute:
+Just before building source/binary/wheel package of your python module, only of the following
+commands:
 
-
-To generate requirements files (ie, dependencies are described eventually by range):
+- To generate requirements files (ie, dependencies are described eventually by range):
 
     .. code-block:: bash
 
         pipenv run pipenv_to_requirements
 
-To generate frozen requirements (ie, all dependencies have their version frozen):
+- To generate frozen requirements (ie, all dependencies have their version frozen):
 
     .. code-block:: bash
 
@@ -60,45 +60,36 @@ To generate frozen requirements (ie, all dependencies have their version frozen)
 It will generate ``requirements.txt`` and, if applicable, ``requirements-dev.txt``, in the current
 directory.
 
+ReadTheDocs
+-----------
+
+Simply commit these files in your tree so that readthedocs, and ensure they are synchronized each
+time you change your ``Pipfile``. Do not forget to ask ReadTheDocs to use ``requirements-dev.txt``
+when building the documentation.
+
 Contributing
 ------------
 
 Create your development environment with
 
-    .. code-block:: bash
+.. code-block:: bash
 
-        $ make dev
+    $ make dev
 
 Execute unit tests:
 
-    .. code-block:: bash
+.. code-block:: bash
 
-        $ make test
-
-Build source, binary and wheels packages:
-
-    .. code-block:: bash
-
-        $ make dist
-
-Code Style Checks:
-
-    .. code-block:: bash
-
-        $ make check
+    $ make test
 
 Code formatter:
 
-    .. code-block:: bash
+.. code-block:: bash
 
-        $ make style
+    $ make style
 
-Create a release:
+Code Style Checks:
 
-    .. code-block:: bash
+.. code-block:: bash
 
-        make requirements
-        git tag 1.2.3
-        make push
-
-On successful Travis build on a Tag, your Pypi package will be updated automatically.
+    $ make check
