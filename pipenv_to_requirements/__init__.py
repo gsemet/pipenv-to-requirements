@@ -60,7 +60,7 @@ def main():
         print("  pipenv-to-requirements [-f|--freeze]")
         print()
         print("Options:")
-        print("  -f --freeze    Generate requirements*.txt with frozen dependencies")
+        print("  -f --freeze    Generate requirements*.txt with frozen versions")
         sys.exit(0)
 
     if "-f" in sys.argv or "--freeze" in sys.argv:
@@ -84,11 +84,11 @@ def main():
     intro = [
         "################################################################################",
         "# This requirements files has been automatically generated from `Pipfile` with",
-        '# `pipenv-to-requirements`', '#', '#'
+        '# `pipenv-to-requirements`', '#', '#',
         '# This has been done to maintain backward compatibility with tools and services',
-        '# that does not support `Pipfile` yet.', '#'
+        '# that do not support `Pipfile` yet.', '#',
         "# Do NOT edit it directly, use `pipenv install [-d]` to modify `Pipfile` and",
-        "# `Pipfile.lock`",
+        "# `Pipfile.lock` and then regenerate `requirements*.txt`.",
         "################################################################################", ""
     ]
 
