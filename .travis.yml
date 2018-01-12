@@ -17,7 +17,7 @@ install:
 script:
   - make check
   - make requirements
-  # - make test-unit
+  - make test
 
 # after_success:
 #   coveralls

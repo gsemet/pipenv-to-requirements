@@ -8,15 +8,20 @@ import sys
 
 # pylint: disable=undefined-variable
 if sys.version_info < (3, 0):
+
     def isstr(astring):
         return isinstance(astring, basestring)
 else:
+
     def isstr(astring):
         return isinstance(astring, str)
+
+
 # pylint: enable=undefined-variable
 
 # pylint: disable=wrong-import-position
 from pipenv.project import Project
+
 # pylint: enable=wrong-import-position
 
 

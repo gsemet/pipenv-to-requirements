@@ -57,5 +57,5 @@ doc/build
 ChangeLog
 AUTHORS
 
-# Do not track Pipfile.lock since it is system dependend (Python 2/3,...)
+# Do not track Pipfile.lock
 Pipfile.lock

@@ -2,7 +2,7 @@
 
 MODULE:=pipenv_to_requirements
 
-all: dev style checks requirements build dists test
+all: dev style checks dists test
 
 dev:
 	pipenv install --dev
@@ -40,7 +40,7 @@ test-verbose:
 test-coverage:
 	pipenv run py.test -v --cov $(MODULE) --cov-report term-missing
 
-dists: sdist bdist wheels
+dists: requirements sdist bdist wheels
 
 requirements:
 	pipenv run pipenv_to_requirements
@@ -69,6 +69,8 @@ push: githook
 
 clean:
 	pipenv --rm
+
+prepare-release: requirements
 
 # aliases to gracefully handle typos on poor dev's terminal
 check: checks
