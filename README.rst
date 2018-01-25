@@ -35,9 +35,15 @@ For examples:
 
 - `ReadTheDocs <https://github.com/rtfd/readthedocs.org/issues/3181>`_
 - `Pyup <https://github.com/pyupio/pyup/issues/197>`_
+- Any library that uses `PBR <https://docs.openstack.org/pbr/latest/>`_ (*)
 - ``pip install`` (if you install a package with ``pip`` that does not have a ``requirements.txt``,
   its dependencies won't be installed, even if you use ``Pipfile``)
 
+(*): for the moment, I recommend to use generate at least ``requirements.txt`` (without version
+freeze) for the libraries using PBR that you publish on Pypi. This allows automatic installation of
+the very dependencies of your package. Without this file, your package will be installed by ``pip``
+without its dependencies. Support in PBR may be added in the future (see this
+`this patch <https://review.openstack.org/#/c/524436/>`_ ).
 
 Usage
 -----
@@ -66,6 +72,7 @@ ReadTheDocs
 Simply commit these files in your tree so that readthedocs, and ensure they are synchronized each
 time you change your ``Pipfile``. Do not forget to ask ReadTheDocs to use ``requirements-dev.txt``
 when building the documentation.
+
 
 Contributing
 ------------
