@@ -99,10 +99,10 @@ def main():
 
     if def_req:
         with open("requirements.txt", "w") as f:
-            f.write("\n".join(intro + sorted(def_req)))
+            f.write("\n".join(intro + sorted(def_req)) + "\n")
         print("generated: requirements.txt")
 
     if dev_req:
         with open("requirements-dev.txt", "w") as f:
-            f.write("\n".join(intro + sorted(dev_req)))
+            f.write("\n".join(intro + sorted(dev_req)) + "\n")
         print("generated: requirements-dev.txt")

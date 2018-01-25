@@ -6,9 +6,11 @@ all: dev style checks dists test
 
 dev:
 	pipenv install --dev
+	pipenv run pip install -e .
 
 dev-py2:
 	pipenv install --dev --two
+	pipenv run pip install -e .
 
 style: isort autopep8 yapf
 
@@ -28,6 +30,9 @@ flake8:
 
 pylint:
 	pipenv run pylint --rcfile=.pylintrc --output-format=colorized $(MODULE)
+
+sc: style checks
+sct: style checks test
 
 build: dists
 
