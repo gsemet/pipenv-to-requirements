@@ -36,10 +36,13 @@ def clean_version(pkg_name, pkg_info):
     editable = pkg_info.get("editable", False)
     markers = pkg_info.get("markers", "").strip()
     extras = pkg_info.get("extras", [])
+    git = pkg_info.get("git", "").strip()
     if not editable:
         rstr = pkg_name
         if version and version != "*":
             rstr += version
+    elif git:
+        rstr = "-e git+" + git + "#egg=" + pkg_name
     else:
         rstr = "-e ."
     if extras:
