@@ -2,3 +2,9 @@
 # see https://pyup.io/docs/configuration/ for all available options
 
 schedule: every week
+
+requirements:
+  - Pipfile:
+      # update all dependencies and pin them
+      update: all
+      pin: False
