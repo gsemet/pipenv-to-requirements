@@ -34,7 +34,8 @@ developers might be stuck with backward compatibility issues for tools and servi
 For examples:
 
 - `ReadTheDocs <https://github.com/rtfd/readthedocs.org/issues/3181>`_
-- `Pyup <https://github.com/pyupio/pyup/issues/197>`_
+- `Pyup <https://github.com/pyupio/pyup/issues/197>`_ (experimental support is
+  `arriving <https://github.com/pyupio/pyup/issues/197>`_ )
 - Any library that uses `PBR <https://docs.openstack.org/pbr/latest/>`_ (*)
 - ``pip install`` (if you install a package with ``pip`` that does not have a ``requirements.txt``,
   its dependencies won't be installed, even if you use ``Pipfile``)
