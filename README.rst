@@ -2,8 +2,8 @@
 pipenv-to-requirements
 ======================
 
-.. image:: https://travis-ci.org/Stibbons/pipenv-to-requirements.svg?branch=master
-    :target: https://travis-ci.org/Stibbons/pipenv-to-requirements
+.. image:: https://travis-ci.org/gsemet/pipenv-to-requirements.svg?branch=master
+    :target: https://travis-ci.org/gsemet/pipenv-to-requirements
 .. image:: https://badge.fury.io/py/pipenv-to-requirements.svg
    :target: https://pypi.python.org/pypi/pipenv-to-requirements/
    :alt: Pypi package
@@ -15,7 +15,7 @@ Generate ``requirements[-dev].txt`` from ``Pipfile`` (using ``pipenv``).
 
 * Free software: MIT
 * Documentation: https://pipenv-to-requirements.readthedocs.org/en/latest/
-* Source: https://github.com/Stibbons/pipenv-to-requirements
+* Source: https://github.com/gsemet/pipenv-to-requirements
 
 Rational
 --------

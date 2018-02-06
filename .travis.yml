@@ -44,4 +44,4 @@ deploy:
       SElpdXcveHBNd282TUJjem9jSTZNY29ybWw2ZU9yNk8rVW9Ta3Ixb3ZURXNGR1YrcjFJU3VPb009
   on:
     tags: true
-    repo: Stibbons/pipenv-to-requirements
+    repo: gsemet/pipenv-to-requirements
