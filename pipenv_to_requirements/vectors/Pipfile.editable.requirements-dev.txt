@@ -1,4 +1,5 @@
 -e .
+-e ../other_e1839a8/
 cryptography>=1.4
 flake8>=3.4
 pycodestyle>=2.0
