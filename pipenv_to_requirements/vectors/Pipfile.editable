@@ -16,7 +16,7 @@ pyyaml = ">=3.11"
 reno = {extras = ["sphinx"]}
 tox = "*"
 "e1839a8" = {path = ".", editable = true}
-
+"other_e1839a8" = {path = "../other_e1839a8/", editable = true}
 
 [packages]
 pbr = ">=3.0"
