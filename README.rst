@@ -40,10 +40,12 @@ For examples:
 - ``pip install`` (if you install a package with ``pip`` that does not have a ``requirements.txt``,
   its dependencies won't be installed, even if you use ``Pipfile``)
 
-(*): for the moment, I recommend to use generate at least ``requirements.txt`` (without version
-freeze) for the libraries using PBR that you publish on Pypi. This allows automatic installation of
-the very dependencies of your package. Without this file, your package will be installed by ``pip``
-without its dependencies. Support in PBR may be added in the future (see this
+(*): for the moment, I recommend to generate at least ``requirements.txt`` (without version
+freeze) for the libraries using PBR that you publish on Pypi. Remember PBR automatically synchronize
+the content of `requirements.txt` found at the root of a package with `setup.py` of this package.
+This allows automatic installation of the very dependencies of your package.
+Without this file, your package will be installed by ``pip``, but its dependencies will be ignored.
+Support in PBR may be added in the future (see this
 `this patch <https://review.openstack.org/#/c/524436/>`_ ).
 
 Usage
@@ -52,13 +54,15 @@ Usage
 Just before building source/binary/wheel package of your python module, only of the following
 commands:
 
-- To generate requirements files (ie, dependencies are described eventually by range):
+- To generate requirements files (ie, dependencies are described eventually by range), typically
+  for **libraries**:
 
     .. code-block:: bash
 
         pipenv run pipenv_to_requirements
 
-- To generate frozen requirements (ie, all dependencies have their version frozen):
+- To generate frozen requirements (ie, all dependencies have their version frozen), typically for
+  **applications**:
 
     .. code-block:: bash
 
@@ -66,6 +70,31 @@ commands:
 
 It will generate ``requirements.txt`` and, if applicable, ``requirements-dev.txt``, in the current
 directory.
+
+Example using a Makefile::
+
+    dev:
+        pipenv install --dev
+        pipenv run pip install -e .
+
+    dists: requirements sdist bdist wheels
+
+    requirements:
+        # For a library, use:
+        pipenv run pipenv_to_requirements
+        # For an application, use:
+        # pipenv run pipenv_to_requirements -f
+
+    sdist: requirements
+        pipenv run python setup.py sdist
+
+    bdist: requirements
+        pipenv run python setup.py bdist
+
+    wheels: requirements
+        pipenv run python setup.py bdist_wheel
+
+Just use `make requirements` to refresh the `requirements.txt`.
 
 ReadTheDocs
 -----------
