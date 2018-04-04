@@ -1,3 +1,4 @@
 pbr>=3.0
 pipenv
 -e git+https://github.com/fake/bla.git#egg=bla
+-e git+https://github.com/ponyorm/pony.git@orm-migrations#egg=pony
