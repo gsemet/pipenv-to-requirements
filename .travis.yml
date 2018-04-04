@@ -3,7 +3,6 @@
 
 language: python
 
-
 python:
   - 3.6
   - 3.5
@@ -11,8 +10,8 @@ python:
   - 2.7
 
 install:
-  - pip install -U pip pipenv
-  - make dev
+  - make ensure-pip-ci
+  - make dev-ci
 
 script:
   - make check
