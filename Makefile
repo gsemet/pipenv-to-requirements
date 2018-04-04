@@ -2,10 +2,24 @@
 
 MODULE:=pipenv_to_requirements
 
-all: dev style checks dists test
+all: ensure-pip dev style checks dists test
+
+ensure-pip:
+	pip install --user --upgrade pipenv pip
+	pip --version
+	pipenv --version
+
+ensure-pip-ci:
+	pip install --upgrade pipenv pip
+	pip --version
+	pipenv --version
 
 dev:
 	pipenv install --dev
+	pipenv run pip install -e .
+
+dev-ci:
+	pipenv install --dev --skip-lock
 	pipenv run pip install -e .
 
 dev-py2:
