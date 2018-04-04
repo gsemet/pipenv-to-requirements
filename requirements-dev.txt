@@ -10,6 +10,7 @@
 # `Pipfile.lock` and then regenerate `requirements*.txt`.
 ################################################################################
 
+autopep8
 cryptography>=1.4
 flake8
 pycodestyle>=2.0
