@@ -22,3 +22,4 @@ tox = "*"
 pbr = ">=3.0"
 pipenv = "*"
 bla = {git = "https://github.com/fake/bla.git", editable=true}
+pony = {git = "https://github.com/ponyorm/pony.git", ref = "orm-migrations", editable = true}
