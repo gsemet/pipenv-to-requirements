@@ -94,7 +94,7 @@ def main():
 
     intro = [
         "################################################################################",
-        "# This requirements files has been automatically generated from `Pipfile` with",
+        "# This requirements file has been automatically generated from `Pipfile` with",
         '# `pipenv-to-requirements`', '#', '#',
         '# This has been done to maintain backward compatibility with tools and services',
         '# that do not support `Pipfile` yet.', '#',
