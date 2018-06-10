@@ -12,7 +12,7 @@ pipenv-to-requirements
    :alt: MIT licensed
 
 Generate ``requirements[-dev].txt`` from ``Pipfile`` (using ``pipenv``). 
-Used in my [modern Python module project cookiecutter](https://github.com/gsemet/python-module-cookiecutter)
+Used in my `modern Python module project cookiecutter <https://github.com/gsemet/python-module-cookiecutter)>`_.
 template.
 
 * Free software: MIT
