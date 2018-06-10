@@ -11,7 +11,9 @@ pipenv-to-requirements
    :target: ./LICENSE
    :alt: MIT licensed
 
-Generate ``requirements[-dev].txt`` from ``Pipfile`` (using ``pipenv``).
+Generate ``requirements[-dev].txt`` from ``Pipfile`` (using ``pipenv``). 
+Used in my [modern Python module project cookiecutter](https://github.com/gsemet/python-module-cookiecutter)
+template.
 
 * Free software: MIT
 * Documentation: https://pipenv-to-requirements.readthedocs.org/en/latest/
