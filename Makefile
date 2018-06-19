@@ -76,7 +76,7 @@ wheels: requirements
 	pipenv run python setup.py bdist_wheel
 
 pypi-publish: build release
-	pipenv run python setup.py upload -r pypi
+	pipenv run twine upload --repository-url=https://upload.pypi.org/legacy/ dist/*.whl
 
 update:
 	pipenv update
