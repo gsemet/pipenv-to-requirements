@@ -19,4 +19,5 @@ pylint>=1.7
 pytest
 pyyaml>=3.11
 tox
+twine
 yapf>=0.18
