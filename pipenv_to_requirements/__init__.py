@@ -70,7 +70,8 @@ def main():
     parser = argparse.ArgumentParser(description='Generate requirements*.txt matching Pipfile*')
     parser.add_argument(
         '-o', '--output', help='Generate only the main requirements.txt to a different file')
-    parser.add_argument('-f', '--freeze', help='Generate requirements*.txt with frozen versions')
+    parser.add_argument('-f', '--freeze', action="store_true",
+                        help='Generate requirements*.txt with frozen versions')
 
     args = parser.parse_args()
 
