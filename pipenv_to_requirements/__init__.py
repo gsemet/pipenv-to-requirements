@@ -5,6 +5,7 @@ from __future__ import print_function
 from __future__ import unicode_literals
 
 import sys
+import argparse
 
 # pylint: disable=undefined-variable
 if sys.version_info < (3, 0):
@@ -66,15 +67,14 @@ def parse_pip_file(pipfile, section):
 
 def main():
 
-    if "-h" in sys.argv or "--help" in sys.argv:
-        print("Usage: ")
-        print("  pipenv-to-requirements [-f|--freeze]")
-        print()
-        print("Options:")
-        print("  -f --freeze    Generate requirements*.txt with frozen versions")
-        sys.exit(0)
+    parser = argparse.ArgumentParser(description='Generate requirements*.txt matching Pipfile*')
+    parser.add_argument(
+        '-o', '--output', help='Generate only the main requirements.txt to a different file')
+    parser.add_argument('-f', '--freeze', help='Generate requirements*.txt with frozen versions')
 
-    if "-f" in sys.argv or "--freeze" in sys.argv:
+    args = parser.parse_args()
+
+    if args.freeze:
         pipfile = Project().lockfile_content
     else:
         # pylint: disable=protected-access
@@ -104,9 +104,16 @@ def main():
     ]
 
     if def_req:
-        with open("requirements.txt", "w") as f:
+        if args.output:
+            requirement_txt = args.output
+        else:
+            requirement_txt = "requirements.txt"
+        with open(requirement_txt, "w") as f:
             f.write("\n".join(intro + sorted(def_req)) + "\n")
-        print("generated: requirements.txt")
+        print("generated: {0}".format(requirement_txt))
+
+    if args.output:
+        return
 
     if dev_req:
         with open("requirements-dev.txt", "w") as f:
