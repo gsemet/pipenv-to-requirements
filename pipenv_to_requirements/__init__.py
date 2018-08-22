@@ -37,6 +37,7 @@ def clean_version(pkg_name, pkg_info):
     editable = pkg_info.get("editable", False)
     markers = pkg_info.get("markers", "").strip()
     extras = pkg_info.get("extras", [])
+    subdir = pkg_info.get("subdirectory", [])
     git = pkg_info.get("git", "").strip()
     path = pkg_info.get("path", "").strip()
     ref = pkg_info.get("ref", "").strip()
@@ -47,6 +48,8 @@ def clean_version(pkg_name, pkg_info):
     elif git:
         ref = "@" + ref if ref else ref
         rstr = "-e git+" + git + ref + "#egg=" + pkg_name
+        if subdir:
+            rstr += '&subdirectory=' + subdir
     else:
         rstr = "-e " + path
     if extras:
