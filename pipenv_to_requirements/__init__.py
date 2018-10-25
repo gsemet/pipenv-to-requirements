@@ -35,7 +35,7 @@ def clean_version(pkg_name, pkg_info):
         return pkg_name
     version = pkg_info.get("version", "").strip()
     editable = pkg_info.get("editable", False)
-    markers = pkg_info.get("markers", "").strip()
+    markers = pkg_info["markers"].strip() if pkg_info.get("markers") else ""
     extras = pkg_info.get("extras", [])
     subdir = pkg_info.get("subdirectory", [])
     git = pkg_info.get("git", "").strip()
