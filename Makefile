@@ -19,7 +19,7 @@ dev:
 	pipenv run pip install -e .
 
 dev-ci:
-	pipenv install --dev --skip-lock
+	pipenv install --dev --deploy
 	pipenv run pip install -e .
 
 dev-py2:
@@ -79,7 +79,7 @@ pypi-publish: build release
 	pipenv run twine upload --repository-url=https://upload.pypi.org/legacy/ dist/*.whl
 
 update:
-	pipenv update
+	pipenv update --clear
 
 githook: style
 

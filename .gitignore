@@ -58,6 +58,4 @@ doc/build
 ChangeLog
 AUTHORS
 
-# Do not track Pipfile.lock
-Pipfile.lock
 .pytest_cache/

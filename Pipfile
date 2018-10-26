@@ -4,11 +4,11 @@ verify_ssl = true
 
 [dev-packages]
 "flake8" = "*"
-pycodestyle = ">=2.0,<2.4"
-pyflakes = "<1.6.0,>=1.5.0"
-pylint = ">=1.7"
-yapf = ">=0.18"
-cryptography = ">=1.4"
+pycodestyle = "*"
+pyflakes = "*"
+pylint = ">*"
+yapf = "*"
+cryptography = "*"
 pyyaml = ">=3.11"
 tox = "*"
 pytest = "*"

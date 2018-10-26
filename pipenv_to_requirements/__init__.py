@@ -60,8 +60,8 @@ def clean_version(pkg_name, pkg_info):
 
 
 def formatPipenvEntryForRequirements(pkg_name, pkg_info):
-    return clean_version(pkg_name, pkg_info["version"].strip()
-                         if "version" in pkg_info else pkg_info)
+    return clean_version(pkg_name,
+                         pkg_info["version"].strip() if "version" in pkg_info else pkg_info)
 
 
 def parse_pip_file(pipfile, section):
@@ -73,8 +73,11 @@ def main():
     parser = argparse.ArgumentParser(description='Generate requirements*.txt matching Pipfile*')
     parser.add_argument(
         '-o', '--output', help='Generate only the main requirements.txt to a different file')
-    parser.add_argument('-f', '--freeze', action="store_true",
-                        help='Generate requirements*.txt with frozen versions')
+    parser.add_argument(
+        '-f',
+        '--freeze',
+        action="store_true",
+        help='Generate requirements*.txt with frozen versions')
 
     args = parser.parse_args()
 
