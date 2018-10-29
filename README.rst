@@ -35,7 +35,7 @@ developers might be stuck with backward compatibility issues for tools and servi
 
 For examples:
 
-- `ReadTheDocs <https://github.com/rtfd/readthedocs.org/issues/3181>`_
+- `Read the Docs <https://github.com/rtfd/readthedocs.org/issues/3181>`_
 - `Pyup <https://github.com/pyupio/pyup/issues/197>`_ (experimental support is
   `arriving <https://github.com/pyupio/pyup/issues/197>`_ )
 - Any library that uses `PBR <https://docs.openstack.org/pbr/latest/>`_ (*)
@@ -98,11 +98,11 @@ Example using a Makefile::
 
 Just use `make requirements` to refresh the `requirements.txt`.
 
-ReadTheDocs
------------
+Read the Docs
+-------------
 
-Simply commit these files in your tree so that readthedocs, and ensure they are synchronized each
-time you change your ``Pipfile``. Do not forget to ask ReadTheDocs to use ``requirements-dev.txt``
+Simply commit these files in your tree so that Read the Rocs, and ensure they are synchronized each
+time you change your ``Pipfile``. Do not forget to ask Read the Docs to use ``requirements-dev.txt``
 when building the documentation.
 
 
