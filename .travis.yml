@@ -2,12 +2,13 @@
 # This file will be regenerated if you run travis_pypi_setup.py
 
 language: python
+dist: xenial
 
 python:
+  - 3.7
   - 3.6
   - 3.5
   - 3.4
-  - 2.7
 
 install:
   - make ensure-pip-ci
