@@ -4,8 +4,11 @@ from __future__ import division
 from __future__ import print_function
 from __future__ import unicode_literals
 
-import sys
 import argparse
+import sys
+
+# pylint: disable=wrong-import-position
+from pipenv.project import Project
 
 # pylint: disable=undefined-variable
 if sys.version_info < (3, 0):
@@ -19,9 +22,6 @@ else:
 
 
 # pylint: enable=undefined-variable
-
-# pylint: disable=wrong-import-position
-from pipenv.project import Project
 
 # pylint: enable=wrong-import-position
 
@@ -68,11 +68,18 @@ def parse_pip_file(pipfile, section):
     return [clean_version(n, i) for n, i in pipfile.get(section, {}).items()]
 
 
-def main():
-
+def parse_args():
     parser = argparse.ArgumentParser(description='Generate requirements*.txt matching Pipfile*')
     parser.add_argument(
-        '-o', '--output', help='Generate only the main requirements.txt to a different file')
+        '-o',
+        '--output',
+        help=('Generate only the main packages to a different file, '
+              'instead of requirements.txt'))
+    parser.add_argument(
+        '-d',
+        '--dev-output',
+        help=('Generate only dev packages to a different file, '
+              'instead of requirements-dev.txt'))
     parser.add_argument(
         '-f',
         '--freeze',
@@ -80,16 +87,17 @@ def main():
         help='Generate requirements*.txt with frozen versions')
 
     args = parser.parse_args()
+    return args
 
+
+def main():
+    args = parse_args()
     if args.freeze:
         pipfile = Project().lockfile_content
     else:
         # pylint: disable=protected-access
         pipfile = Project()._lockfile
         # pylint: enable=protected-access
-
-    def_req = parse_pip_file(pipfile, "default")
-    dev_req = parse_pip_file(pipfile, "develop")
 
     # Create pip-compatible dependency list
     def_req = [
@@ -113,16 +121,25 @@ def main():
     if def_req:
         if args.output:
             requirement_txt = args.output
+        elif args.dev_output:
+            # if -d without -o, do not generate packages, for compatibility sake
+            requirement_txt = None
         else:
             requirement_txt = "requirements.txt"
-        with open(requirement_txt, "w") as f:
-            f.write("\n".join(intro + sorted(def_req)) + "\n")
-        print("generated: {0}".format(requirement_txt))
-
-    if args.output:
-        return
+        if requirement_txt:
+            with open(requirement_txt, "w") as f:
+                f.write("\n".join(intro + sorted(def_req)) + "\n")
+            print("generated: {0}".format(requirement_txt))
 
     if dev_req:
-        with open("requirements-dev.txt", "w") as f:
-            f.write("\n".join(intro + sorted(dev_req)) + "\n")
-        print("generated: requirements-dev.txt")
+        if args.dev_output:
+            requirement_txt = args.dev_output
+        elif args.output:
+            # if -o without -d, do not generate dev packages, for compatibility sake
+            requirement_txt = None
+        else:
+            requirement_txt = "requirements-dev.txt"
+        if requirement_txt:
+            with open(requirement_txt, "w") as f:
+                f.write("\n".join(intro + sorted(def_req)) + "\n")
+            print("generated: {0}".format(requirement_txt))

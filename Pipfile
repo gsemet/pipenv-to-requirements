@@ -14,6 +14,9 @@ tox = "*"
 pytest = "*"
 "autopep8" = "*"
 twine = "*"
+pytest-mock = "*"
+pyfakefs = "*"
+scandir = "*"
 
 [packages]
 pbr = ">=3.0"

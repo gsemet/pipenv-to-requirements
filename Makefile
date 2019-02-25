@@ -14,17 +14,21 @@ ensure-pip-ci:
 	pip --version
 	pipenv --version
 
-dev:
+dev: mk-venv
 	pipenv install --dev
 	pipenv run pip install -e .
 
-dev-ci:
+dev-ci: mk-venv
 	pipenv install --dev --deploy
 	pipenv run pip install -e .
 
-dev-py2:
+dev-py2: mk-venv
 	pipenv install --dev --two
 	pipenv run pip install -e .
+
+mk-venv:
+	rm -rf .venv
+	mkdir -p .venv
 
 style: isort autopep8 yapf
 
@@ -51,7 +55,10 @@ sct: style checks test
 build: dists
 
 test:
-	pipenv run pytest $(MODULE)
+	pipenv run pytest -v $(MODULE)
+
+test-v:
+	pipenv run pytest -vs $(MODULE)
 
 test-verbose:
 	pipenv run pytest -s $(MODULE)
@@ -88,6 +95,7 @@ push: githook
 
 clean:
 	pipenv --rm
+	rm -rf .venv
 
 prepare-release: requirements
 
@@ -100,3 +108,4 @@ install: install-system
 pypi: pypi-publish
 styles: style
 wheel: wheels
+ut: test

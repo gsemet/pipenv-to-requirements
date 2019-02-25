@@ -11,7 +11,7 @@ pipenv-to-requirements
    :target: ./LICENSE
    :alt: MIT licensed
 
-Generate ``requirements[-dev].txt`` from ``Pipfile`` (using ``pipenv``). 
+Generate ``requirements[-dev].txt`` from ``Pipfile`` (using ``pipenv``).
 Used in my `modern Python module project cookiecutter <https://github.com/gsemet/python-module-cookiecutter>`_.
 template.
 
@@ -72,6 +72,16 @@ commands:
 
 It will generate ``requirements.txt`` and, if applicable, ``requirements-dev.txt``, in the current
 directory.
+
+- Also possible:
+
+    .. code-block:: bash
+
+        pipenv run pipenv_to_requirements -d requirements-dev-custom.txt
+        pipenv run pipenv_to_requirements -d requirements-dev-custom.txt -f
+        pipenv run pipenv_to_requirements -o requirements-custom.txt
+        pipenv run pipenv_to_requirements -o requirements-custom.txt -f
+        pipenv run pipenv_to_requirements  -d requirements-dev-custom.txt -o requirements-custom.txt -f
 
 Example using a Makefile::
 
