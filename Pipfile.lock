@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "459017f8a457fccc171bd708942799cd077475af41ef0aed90a7844277d9e11c"
+            "sha256": "1f7574d4b511eb2582906189147a8cc453c9c745d2d537b74e25c59c1d18360f"
         },
         "pipfile-spec": 6,
         "requires": {},
@@ -139,6 +139,13 @@
                 "sha256:fc323ffcaeaed0e0a02bf4d117757b98aed530d9ed4531e3e15460124c106691"
             ],
             "version": "==3.0.4"
+        },
+        "click": {
+            "hashes": [
+                "sha256:2335065e6395b9e67ca716de5f7526736bfa6ceead690adf616d925bdc622b13",
+                "sha256:5b94b49521f6456670fdb30cd82a4eca9412788a93fa6dd6df72c94d5a8ff2d7"
+            ],
+            "version": "==7.0"
         },
         "cryptography": {
             "hashes": [
@@ -326,6 +333,12 @@
             ],
             "version": "==2.3.0.dev2"
         },
+        "pyperclip": {
+            "hashes": [
+                "sha256:ce829433a9af640e08ee89b20f7c62132714bcc5d77df114044d0fccb8c3b3b8"
+            ],
+            "version": "==1.6.0"
+        },
         "pytest": {
             "hashes": [
                 "sha256:067a1d4bf827ffdd56ad21bd46674703fce77c5957f6c1eef731f6146bfcef1c",
@@ -420,6 +433,14 @@
                 "sha256:e22977e3ebe961f72362f6ddfb9197cc531c9737aaf5f607ef09740c849ecd05"
             ],
             "version": "==4.31.1"
+        },
+        "travis-encrypt": {
+            "hashes": [
+                "sha256:0eaec20d99fb7a6051dae39195a51d81c365097675ad921d6c6381eabf014ce5",
+                "sha256:b73f691b3b5a2b783f909cd7892d1e34be0884d2280b62da0300cb2e6d6f1467",
+                "sha256:c7e3aa10010e8c31f115ee25db64ca645bd2a0cdeb47fed1731468821c17b65d"
+            ],
+            "version": "==1.1.2"
         },
         "twine": {
             "hashes": [

@@ -17,6 +17,7 @@ twine = "*"
 pytest-mock = "*"
 pyfakefs = "*"
 scandir = "*"
+travis-encrypt = "*"
 
 [packages]
 pbr = ">=3.0"
