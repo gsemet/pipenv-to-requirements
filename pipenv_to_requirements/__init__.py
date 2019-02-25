@@ -141,5 +141,5 @@ def main():
             requirement_txt = "requirements-dev.txt"
         if requirement_txt:
             with open(requirement_txt, "w") as f:
-                f.write("\n".join(intro + sorted(def_req)) + "\n")
+                f.write("\n".join(intro + sorted(dev_req)) + "\n")
             print("generated: {0}".format(requirement_txt))

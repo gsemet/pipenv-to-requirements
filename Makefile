@@ -66,7 +66,7 @@ test-verbose:
 test-coverage:
 	pipenv run py.test -v --cov $(MODULE) --cov-report term-missing
 
-dists: requirements sdist bdist wheels
+dists: requirements sdist wheels
 
 requirements:
 	pipenv run pipenv_to_requirements
@@ -82,8 +82,8 @@ bdist: requirements
 wheels: requirements
 	pipenv run python setup.py bdist_wheel
 
-pypi-publish: build release
-	pipenv run twine upload --repository-url=https://upload.pypi.org/legacy/ dist/*.whl
+pypi-publish: clean-dist build release
+	pipenv run twine upload --repository-url=https://upload.pypi.org/legacy/ dist/*.whl dist/*.gz
 
 update:
 	pipenv update --clear
@@ -93,9 +93,12 @@ githook: style
 push: githook
 	@git push origin --tags
 
-clean:
+clean: clean-dist
 	pipenv --rm
 	rm -rf .venv
+
+clean-dist:
+	rm -rf dist/
 
 prepare-release: requirements
 

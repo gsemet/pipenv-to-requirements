@@ -11,13 +11,17 @@
 ################################################################################
 
 autopep8
-cryptography>=1.4
+cryptography
 flake8
-pycodestyle>=2.0,<2.4
-pyflakes<1.6.0,>=1.5.0
-pylint>=1.7
+pycodestyle
+pyfakefs
+pyflakes
+pylint>*
 pytest
+pytest-mock
 pyyaml>=3.11
+scandir
 tox
+travis-encrypt
 twine
-yapf>=0.18
+yapf

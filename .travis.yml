@@ -30,16 +30,16 @@ deploy:
   distributions: sdist bdist_wheel
   password:
     secure: >
-      rmzUjZdLlYuXMYrn7SCydppn/OGLbIriQLKq0ZYJFU1aqHTehBfYyp0wg3Fpj2jmcvxmy8ZNP
-      62Wlr59336JVttMNKQpgcHTAQXl0S22ETYX/NPoTKRnYBWbdYP+6i07gSabsoRiHTMBiNqa7G
-      bb28sgN5lf/zMwX6Ht6SPChmVJ5A06RdbmQXu60xpLa0FKBkakviCrdSxuRbGEbmHubrqD4Ge
-      W73X65MZWhFFWGq19IHJW02HWUC1sdQaO/uK3egcIYWY0OJX2hY9HVemf32fTaHJtSeoKb0Tp
-      iMp0Mg+CESK6M2K6QASOVVY2XaULnwd19n9x/B/j6WcU0R8I/n2t/DndNSrjACqTyzs9kslNs
-      HtM1Aqqx5pUQwK+w7npiYXUBlyyxNQKjSCFDSihFf6j5Yet8ItEjQBmsx419vuW8dgAoqgpRD
-      bAvt0D2MadeyCk0FqZ8PyRhqx/VwCb4ZNUslaA2aAUB7vGR5DD/bKhO9tbmknT4gld+bdhFo9
-      P5RQlI6Ld9dYEFza/pe0SqJQ/rIwVaSqI2bNDh34XEcGyThc9HHacFQPfKRCdAmIk/Pp5MCNn
-      rOxwoGfancrrJIFsDnUPTpap6cohcYUaP9Iqvop3qD9H5dsGifMv+clhgZ/GOqNEq3IgeTjli
-      Z1sHD5M25xMHg6YoDJNW6He0CA=
+      rUTQIwNzTPoWX552eYvERnRZ/LCrU7aiZ53Rt6hNNpv+IQFnaEsBo/gtIikRYg2yRIm8D86Pqg
+      uNDCF7UgxbHwFQgmrAU63yGP4DsThvA2lGM55FKA7rojcln84tA+eqhTRqvZFAMKmCfigOdASR
+      PsMN6J2wk1NwEbKG4pY1mNPmbblkeKDUHTzEledj3akb4O50oh3HMll3IG8TSWdSLn2p560Tzs
+      9yA9y18Qmg8nwGFIllHxO3z95fA9azBPtVCNfmI4bHnvoL6/7iiCYy8VKt1VgmSM8SedtwB5E9
+      KckVLaVYWZ0F061nTv/lf404YiVdIjEgZW4pO7aG6FqQDXnMgeVVtSOS7uI7LygUyu0kgWHwHr
+      kLXS6g/fO2D3+38TnryjdHo3B+XIp7aItsVUKyC2ppllLHHWdFYhL/EoHtgxtNB8kVo58kal4I
+      1ZreQO+7sEu/yzzBY+/bblz62ZOsrfJOmnhveH02vvwMwKW5NOTJHhsgh9RjO2FU6U1yeRZ2vF
+      tmr19d9qPNmBj5iAxlHqYLq6B++SWmZiZLxNbMeTf5K0jqZxeuA1+m0pPfZQfYF/fsIXnKkC/5
+      zTFX/FEdA1Ubj8RYa6BUkeNJ0ZiJJEtFNgvs6sctl75xeeT+wcF2X4E/pvmANanxWZ+2rSq9sr
+      V3Wd2h0tuKxI+xD3U=
   on:
     tags: true
     repo: gsemet/pipenv-to-requirements
