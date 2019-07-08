@@ -20,7 +20,7 @@ class TestParsing(object):
     @staticmethod
     def load_requirements(name):
         with open(os.path.join(VECTORS_FOLDER, name)) as f:
-            return [l.strip() for l in f.readlines()]
+            return [l.strip() for l in f.readlines() if l.strip()]
 
     @staticmethod
     def load_vector_pipfile(name):
@@ -62,6 +62,5 @@ class TestParsing(object):
         expected_requirements = self.load_requirements("Pipfile.markers.requirements.txt")
         assert sorted(requirements) == sorted(expected_requirements)
 
-        print(requirements_dev)
         expected_requirements_dev = self.load_requirements("Pipfile.markers.requirements-dev.txt")
         assert sorted(requirements_dev) == sorted(expected_requirements_dev)

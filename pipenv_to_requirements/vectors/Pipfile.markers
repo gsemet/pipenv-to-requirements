@@ -15,6 +15,7 @@ cryptography = ">=1.4"
 pyyaml = ">=3.11"
 tox = "*"
 future = {version = "*", markers = "python_version < '3.0'"}
+libvirt-python = {version = "==4.10.0", markers="platform_system=='Linux'"}
 
 
 [packages]

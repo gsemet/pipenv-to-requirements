@@ -59,11 +59,6 @@ def clean_version(pkg_name, pkg_info):
     return rstr
 
 
-def formatPipenvEntryForRequirements(pkg_name, pkg_info):
-    return clean_version(pkg_name,
-                         pkg_info["version"].strip() if "version" in pkg_info else pkg_info)
-
-
 def parse_pip_file(pipfile, section):
     return [clean_version(n, i) for n, i in pipfile.get(section, {}).items()]
 
@@ -99,13 +94,8 @@ def main():
         pipfile = Project()._lockfile
         # pylint: enable=protected-access
 
-    # Create pip-compatible dependency list
-    def_req = [
-        formatPipenvEntryForRequirements(n, i) for n, i in pipfile.get("default", {}).items()
-    ]
-    dev_req = [
-        formatPipenvEntryForRequirements(n, i) for n, i in pipfile.get("develop", {}).items()
-    ]
+    def_req = parse_pip_file(pipfile, 'default')
+    dev_req = parse_pip_file(pipfile, "develop")
 
     intro = [
         "################################################################################",
