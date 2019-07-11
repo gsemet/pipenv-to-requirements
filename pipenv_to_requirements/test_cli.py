@@ -28,8 +28,6 @@ def fake_pipenv(mocker):
     }
     fake_pipenv_project.return_value = fake_pipenv_project2
     mocker.patch("pipenv_to_requirements.parse_pip_file")
-    mocker.patch(
-        "pipenv_to_requirements.formatPipenvEntryForRequirements", side_effect=lambda x, y: x)
 
 
 def test_no_opt(fake_pipenv, mocker, fs):
