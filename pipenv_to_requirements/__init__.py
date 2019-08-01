@@ -1,8 +1,4 @@
 # -*- coding: utf-8 -*-
-from __future__ import absolute_import
-from __future__ import division
-from __future__ import print_function
-from __future__ import unicode_literals
 
 import argparse
 import sys
@@ -41,10 +37,16 @@ def clean_version(pkg_name, pkg_info):
     git = pkg_info.get("git", "").strip()
     path = pkg_info.get("path", "").strip()
     ref = pkg_info.get("ref", "").strip()
+    rstr = ""
     if not editable:
-        rstr = pkg_name
+        rstr += pkg_name
+
+    if extras:
+        rstr += "[{}]".format(', '.join([s.strip() for s in extras]))
+
+    if not editable:
         if version and version != "*":
-            rstr += version
+            rstr += version.strip()
     elif git:
         ref = "@" + ref if ref else ref
         rstr = "-e git+" + git + ref + "#egg=" + pkg_name
@@ -52,8 +54,6 @@ def clean_version(pkg_name, pkg_info):
             rstr += '&subdirectory=' + subdir
     else:
         rstr = "-e " + path
-    if extras:
-        rstr += "[{}]".format(', '.join([s.strip() for s in extras]))
     if markers:
         rstr += " ; " + markers
     return rstr
@@ -65,21 +65,18 @@ def parse_pip_file(pipfile, section):
 
 def parse_args():
     parser = argparse.ArgumentParser(description='Generate requirements*.txt matching Pipfile*')
-    parser.add_argument(
-        '-o',
-        '--output',
-        help=('Generate only the main packages to a different file, '
-              'instead of requirements.txt'))
-    parser.add_argument(
-        '-d',
-        '--dev-output',
-        help=('Generate only dev packages to a different file, '
-              'instead of requirements-dev.txt'))
-    parser.add_argument(
-        '-f',
-        '--freeze',
-        action="store_true",
-        help='Generate requirements*.txt with frozen versions')
+    parser.add_argument('-o',
+                        '--output',
+                        help=('Generate only the main packages to a different file, '
+                              'instead of requirements.txt'))
+    parser.add_argument('-d',
+                        '--dev-output',
+                        help=('Generate only dev packages to a different file, '
+                              'instead of requirements-dev.txt'))
+    parser.add_argument('-f',
+                        '--freeze',
+                        action="store_true",
+                        help='Generate requirements*.txt with frozen versions')
 
     args = parser.parse_args()
     return args

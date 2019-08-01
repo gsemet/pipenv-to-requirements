@@ -1,8 +1,4 @@
 # -*- coding: utf-8 -*-
-from __future__ import absolute_import
-from __future__ import division
-from __future__ import print_function
-from __future__ import unicode_literals
 
 import json
 import os
@@ -63,4 +59,16 @@ class TestParsing(object):
         assert sorted(requirements) == sorted(expected_requirements)
 
         expected_requirements_dev = self.load_requirements("Pipfile.markers.requirements-dev.txt")
+        assert sorted(requirements_dev) == sorted(expected_requirements_dev)
+
+    def test_extras(self):
+        pipfile_json = self.load_vector_pipfile("Pipfile.extras")
+
+        requirements = pipenv_to_requirements.parse_pip_file(pipfile_json, "default")
+        requirements_dev = pipenv_to_requirements.parse_pip_file(pipfile_json, "develop")
+
+        expected_requirements = self.load_requirements("Pipfile.extras.requirements.txt")
+        assert sorted(requirements) == sorted(expected_requirements)
+
+        expected_requirements_dev = self.load_requirements("Pipfile.extras.requirements-dev.txt")
         assert sorted(requirements_dev) == sorted(expected_requirements_dev)

@@ -1,0 +1,8 @@
+cryptography>=1.4
+flake8>=3.4
+pycodestyle>=2.0
+pyflakes<1.6.0,>=1.5.0
+pylint>=1.7
+pyyaml>=3.11
+tox
+yapf>=0.18

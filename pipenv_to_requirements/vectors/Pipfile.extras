@@ -1,0 +1,22 @@
+[[source]]
+
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+
+
+[dev-packages]
+
+"flake8" = ">=3.4"
+pycodestyle = ">=2.0"
+pyflakes = "<1.6.0,>=1.5.0"
+pylint = ">=1.7"
+yapf = ">=0.18"
+cryptography = ">=1.4"
+pyyaml = ">=3.11"
+tox = "*"
+
+
+[packages]
+pbr = ">=3.0"
+pipenv = "*"
+requests = {version = "==2.9.1", extras = ["security"]}
