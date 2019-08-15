@@ -69,7 +69,7 @@ def parse_args():
                         '--output',
                         help=('Generate only the main packages to a different file, '
                               'instead of requirements.txt'))
-    parser.add_argx`ument('-d',
+    parser.add_argument('-d',
                           '--dev-output',
                           help=('Generate only dev packages to a different file, '
                                 'instead of requirements-dev.txt'))
