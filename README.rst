@@ -50,6 +50,9 @@ Without this file, your package will be installed by ``pip``, but its dependenci
 Support in PBR may be added in the future (see this
 `this patch <https://review.openstack.org/#/c/524436/>`_ ).
 
+For build reproductibility, I also recommend to **check in** your lock file even for libraries,
+so that your CI won't fail when new packages is published on Pypi.
+
 Usage
 -----
 
