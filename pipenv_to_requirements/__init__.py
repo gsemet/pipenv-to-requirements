@@ -1,10 +1,13 @@
 # -*- coding: utf-8 -*-
 
 import argparse
+import logging
 import sys
 
 # pylint: disable=wrong-import-position
 from pipenv.project import Project
+
+logging.basicConfig(level=logging.INFO)
 
 # pylint: disable=undefined-variable
 if sys.version_info < (3, 0):
@@ -78,12 +81,30 @@ def parse_args():
                         action="store_true",
                         help='Generate requirements*.txt with frozen versions')
 
+    parser.add_argument('-q',
+                        '--quiet',
+                        action="store_true",
+                        help="Run silently without outputting logs")
+
     args = parser.parse_args()
     return args
 
 
+def get_logger(is_quiet):
+    logger = logging.getLogger(__name__)
+    if is_quiet:
+        logger.setLevel(logging.WARN)
+    else:
+        logger.setLevel(logging.INFO)
+    return logger
+
+
 def main():
+
     args = parse_args()
+
+    logger = get_logger(args.quiet)
+
     if args.freeze:
         pipfile = Project().lockfile_content
     else:
@@ -116,7 +137,7 @@ def main():
         if requirement_txt:
             with open(requirement_txt, "w") as f:
                 f.write("\n".join(intro + sorted(def_req)) + "\n")
-            print("generated: {0}".format(requirement_txt))
+            logger.info("generated: %s", requirement_txt)
 
     if dev_req:
         if args.dev_output:
@@ -129,4 +150,4 @@ def main():
         if requirement_txt:
             with open(requirement_txt, "w") as f:
                 f.write("\n".join(intro + sorted(dev_req)) + "\n")
-            print("generated: {0}".format(requirement_txt))
+            logger.info("generated: %s", requirement_txt)
