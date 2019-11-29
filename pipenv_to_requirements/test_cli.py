@@ -32,6 +32,7 @@ def test_no_opt(fake_pipenv, mocker, fs):
     fake_args.output = None
     fake_args.dev_output = None
     fake_args.freeze = None
+    fake_args.quiet = None
     mocker.patch("pipenv_to_requirements.parse_args", return_value=fake_args)
 
     main()
@@ -44,6 +45,7 @@ def test_opt_output(fake_pipenv, mocker, fs):
     fake_args.output = "requirements-custom.txt"
     fake_args.dev_output = None
     fake_args.freeze = None
+    fake_args.quiet = None
     mocker.patch("pipenv_to_requirements.parse_args", return_value=fake_args)
 
     main()
@@ -56,6 +58,7 @@ def test_opt_dev_output(fake_pipenv, mocker, fs):
     fake_args.output = None
     fake_args.dev_output = "requirements-dev-custom.txt"
     fake_args.freeze = None
+    fake_args.quiet = None
     mocker.patch("pipenv_to_requirements.parse_args", return_value=fake_args)
 
     main()
@@ -68,6 +71,7 @@ def test_opt_dev_output_freeze(fake_pipenv, mocker, fs):
     fake_args.output = None
     fake_args.dev_output = "requirements-dev-custom.txt"
     fake_args.freeze = True
+    fake_args.quiet = None
     mocker.patch("pipenv_to_requirements.parse_args", return_value=fake_args)
 
     main()
@@ -80,6 +84,7 @@ def test_opt_output_and_dev_output(fake_pipenv, mocker, fs):
     fake_args.output = "requirements-custom.txt"
     fake_args.dev_output = "requirements-dev-custom.txt"
     fake_args.freeze = None
+    fake_args.quiet = None
     mocker.patch("pipenv_to_requirements.parse_args", return_value=fake_args)
 
     main()
