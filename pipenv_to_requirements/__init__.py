@@ -73,9 +73,9 @@ def parse_args():
                         help=('Generate only the main packages to a different file, '
                               'instead of requirements.txt'))
     parser.add_argument('-d',
-                          '--dev-output',
-                          help=('Generate only dev packages to a different file, '
-                                'instead of requirements-dev.txt'))
+                        '--dev-output',
+                        help=('Generate only dev packages to a different file, '
+                              'instead of requirements-dev.txt'))
     parser.add_argument('-f',
                         '--freeze',
                         action="store_true",
