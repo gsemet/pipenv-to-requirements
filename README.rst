@@ -43,10 +43,14 @@ For examples:
   its dependencies won't be installed, even if you use ``Pipfile``)
 
 (*): for the moment, I recommend to generate at least ``requirements.txt`` (without version
-freeze) for the libraries using PBR that you publish on Pypi. Remember PBR automatically synchronize
-the content of `requirements.txt` found at the root of a package with `setup.py` of this package.
-This allows automatic installation of the very dependencies of your package.
-Without this file, your package will be installed by ``pip``, but its dependencies will be ignored.
+freeze) for the libraries using PBR that you publish on Pypi, and commit this file into your git
+history.
+Remember PBR automatically synchronize the content of `requirements.txt` found at the root of your
+package with the `install_requires` section of your package's `setup.py`.
+This allows the automatic installation of the all production dependencies when "pip-installing"
+your package .
+
+Without this file, your package would still be installed by ``pip``, but without its own dependencies.
 Support in PBR may be added in the future (see this
 `this patch <https://review.openstack.org/#/c/524436/>`_ ).
 
@@ -122,6 +126,9 @@ when building the documentation.
 Contributing
 ------------
 
+This package has been bootstrapped with Gsemet's
+[Python-module-cookiecutter](https://github.com/gsemet/python-module-cookiecutter).
+
 Create your development environment with
 
 .. code-block:: bash
@@ -145,3 +152,9 @@ Code Style Checks:
 .. code-block:: bash
 
     $ make check
+
+Build distribution packages with
+
+.. code-block:: bash
+
+    $ make dists
