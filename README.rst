@@ -19,7 +19,7 @@ template.
 * Documentation: https://pipenv-to-requirements.readthedocs.org/en/latest/
 * Source: https://github.com/gsemet/pipenv-to-requirements
 
-Rational
+Rationale
 --------
 
 ``Pipfile`` and its sibling ``Pipfile.lock`` are clearly superior tools defining clear dependencies
