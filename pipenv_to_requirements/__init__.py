@@ -111,6 +111,8 @@ def main():
         # pylint: disable=protected-access
         pipfile = Project()._lockfile
         # pylint: enable=protected-access
+        if callable(pipfile):
+            pipfile = pipfile()
 
     def_req = parse_pip_file(pipfile, 'default')
     dev_req = parse_pip_file(pipfile, "develop")
